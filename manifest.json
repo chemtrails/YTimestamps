@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "YTimestamps",
     "description": "Add timestamps to YouTube videos",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "permissions": [
         "storage",
         "https://www.youtube.com/*"
