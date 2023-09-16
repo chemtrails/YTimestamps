@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "YTimestamps",
+    "description": "Add timestamps to YouTube videos",
+    "version": "0.0.1",
+    "permissions": [
+        "storage",
+        "https://www.youtube.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://www.youtube.com/*"],
+            "js": ["content.js"],
+            "css": ["content.css"]
+        }
+    ],
+    "icons": {
+        "16": "16.png",
+        "32": "32.png",
+        "64": "64.png",
+        "128": "128.png"
+    }
+}

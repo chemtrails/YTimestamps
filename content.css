@@ -1,0 +1,133 @@
+#__timestamps-panel__ {
+    background: black;
+    border-radius: 10px;
+    width: 100%;
+    max-height: 350px;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: lightgrey;
+    overflow: scroll;
+    display: flex !important;
+    flex-direction: column;
+    margin: 10px auto;
+}
+
+.__timestamps-list-element__ {
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.__timestamps-list-element__:hover,
+.__timestamps-list-element-selected__ {
+    background: #380000;
+}
+
+.__timestamps-wrapper__ {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    min-width: 90%;
+    height: 100%;
+}
+
+.__timestamps-button__ {
+    border-radius: 5px;
+    padding: 10px;
+    color: lightgrey;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.__timestamps-delete-button__ {
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: fit-content;
+    color: grey;
+}
+
+.__timestamps-delete-button__:hover {
+    color: white;
+}
+
+.__timestamps-button__:hover {
+    color: white;
+}
+
+.__timestamps-input-wrapper__ {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #380000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    position: sticky;
+    top: 0;
+}
+
+.__timestamps-input-wrapper__ input {
+    background: transparent;
+    border-radius: 5px;
+    padding: 10px 5px;
+    font: inherit;
+    border: none;
+    color: white;
+    outline: none;
+    box-sizing: border-box;
+    min-width: 85%;
+}
+
+.__timestamps-time__ {
+    padding: 3px;
+    background: #380000;
+    color: lightgrey;
+    font-size: small;
+    width: fit-content;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.__timestamps-time__:hover {
+    color: white;
+}
+
+.__timestamps-input__ {
+    background: transparent;
+    font: inherit;
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+    resize: vertical;
+    color: white;
+    width: 85%;
+    box-sizing: border-box;
+}
+
+.__timestamps-before__ {
+    background: #2f1919;
+}
+
+.__timestamps-selected__ {
+    box-shadow: 0 0 70px darkred inset;
+}
