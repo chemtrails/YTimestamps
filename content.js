@@ -29,10 +29,7 @@ function onMutations() {
         settings === null ||
         id === null
     ) {
-        if (attached === true) {
-            closeTimestampsPanel()
-        }
-
+        if (attached === true) closeTimestampsPanel()
         return
     }
 
@@ -86,9 +83,7 @@ function onMutations() {
             openButton.setAttribute('aria-checked', 'true')
 
             // idk why
-            timeout = setTimeout(() => {
-                openTimestampsPanel()
-            }, 500)
+            timeout = setTimeout(openTimestampsPanel, 500)
         }
     }
 }
@@ -103,9 +98,10 @@ function openTimestampsPanel() {
 
     panel.id = '__timestamps-panel__'
     input.placeholder = 'New timestamp...'
-    createButton.classList.add('__timestamps-button__')
     inputWrapper.classList.add('__timestamps-input-wrapper__')
-    createButton.textContent = 'Add'
+    createButton.classList.add('__timestamps-button__')
+    createButton.innerHTML = `
+    <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5.5 10.5h10"/><path d="m10.5 5.5v10"/></g></svg>`
 
     input.addEventListener('keyup', e => {
         if (e.key !== 'Enter') return
@@ -136,21 +132,13 @@ function openTimestampsPanel() {
         }
     })
 
-    createButton.addEventListener('click', e => {
-        pushTimestamp()
-    })
-
+    createButton.addEventListener('click', pushTimestamp)
     inputWrapper.append(input)
     inputWrapper.append(createButton)
     panel.append(inputWrapper)
-
-    if (timestamps) {
-        buildList()
-    }
-
+    if (timestamps) buildList()
     panels.prepend(panel)
     attached = true
-
 }
 
 function buildList() {
@@ -164,7 +152,6 @@ function insertTimestamp(stamp, index) {
     const el = createTimestamp(stamp)
     panel.insertBefore(el, panel.children[index + 1])
 }
-
 
 function createTimestamp(stamp) {
     const el = document.createElement('div')
@@ -184,16 +171,14 @@ function createTimestamp(stamp) {
     if (d.startsWith('00:')) d = d.replace('00:', '')
     time.textContent = d
 
-    time.addEventListener('click', e => {
-        video.currentTime = stamp.time
-    })
+    time.addEventListener('click', () => video.currentTime = stamp.time)
 
-    note.addEventListener('input', e => {
+    note.addEventListener('input', () => {
         stamp.note = note.value
         updateStore()
     })
 
-    deleteButton.addEventListener('click', e => {
+    deleteButton.addEventListener('click', () => {
         el.remove()
         timestamps.splice(timestamps.indexOf(stamp), 1);
         updateStore()
@@ -235,7 +220,7 @@ function closeTimestampsPanel() {
 }
 
 function updateStore() {
-    const obj = {}
+    let obj = {}
     obj[videoId] = timestamps
     chrome.storage.local.set(obj)
 }

@@ -23,8 +23,7 @@
     border-radius: 5px;
 }
 
-.__timestamps-list-element__:hover,
-.__timestamps-list-element-selected__ {
+.__timestamps-list-element__:hover {
     background: #380000;
 }
 
@@ -38,13 +37,14 @@
 
 .__timestamps-button__ {
     border-radius: 5px;
-    padding: 10px;
-    color: lightgrey;
+    padding: 5px;
+    color: grey;
     cursor: pointer;
     width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .__timestamps-delete-button__ {
@@ -59,11 +59,9 @@
     color: grey;
 }
 
-.__timestamps-delete-button__:hover {
-    color: white;
-}
-
-.__timestamps-button__:hover {
+.__timestamps-delete-button__:hover,
+.__timestamps-button__:hover,
+.__timestamps-time__:hover {
     color: white;
 }
 
@@ -106,10 +104,6 @@
     border-radius: 5px;
     height: 100%;
     cursor: pointer;
-}
-
-.__timestamps-time__:hover {
-    color: white;
 }
 
 .__timestamps-input__ {
